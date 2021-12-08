@@ -16,7 +16,7 @@
 
     <%= f.label :round_id %>
     <!-- Input for round_id start -->
-    <%= f.number_field :round_id, class: round_class, placeholder: "Enter round" %>
+    <%= f.collection_select :round_id, Round.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for round_id end -->
     <% if round_was_invalid %>
       <% holes_result.errors.full_messages_for(:round).each do |message| %>
