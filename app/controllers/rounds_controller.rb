@@ -5,7 +5,7 @@ class RoundsController < ApplicationController
 
   # GET /rounds
   def index
-    @rounds = Round.all
+    @rounds = Round.page(params[:page]).per(10)
   end
 
   # GET /rounds/1

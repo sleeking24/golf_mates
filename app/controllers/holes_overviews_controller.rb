@@ -3,7 +3,7 @@ class HolesOverviewsController < ApplicationController
 
   # GET /holes_overviews
   def index
-    @holes_overviews = HolesOverview.all
+    @holes_overviews = HolesOverview.page(params[:page]).per(10)
   end
 
   # GET /holes_overviews/1
