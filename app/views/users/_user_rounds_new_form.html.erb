@@ -1,0 +1,81 @@
+<!-- Form round start -->
+<%= form_with(model: @round, local: true) do |f| %>
+<!-- Form round end -->
+
+  <!-- Label and input for course_id start -->
+  <div class="form-group">
+    <%= f.label :course_id %>
+
+    <!-- Input for course_id start -->
+    <%= f.text_field :course_id, class: "form-control" %>
+    <!-- Input for course_id end -->
+  </div>
+  <!-- Label and input for course_id end -->
+
+  <!-- Label and input for user_id start -->
+  <!-- Input for user_id start -->
+  <%= f.hidden_field :user_id, value: @user.id %>
+  <!-- Input for user_id end -->
+  <!-- Label and input for user_id end -->
+
+  <!-- Label and input for score start -->
+  <div class="form-group">
+    <%= f.label :score %>
+
+    <!-- Input for score start -->
+    <%= f.text_field :score, class: "form-control" %>
+    <!-- Input for score end -->
+  </div>
+  <!-- Label and input for score end -->
+
+  <!-- Label and input for best_hole start -->
+  <div class="form-group">
+    <%= f.label :best_hole %>
+
+    <!-- Input for best_hole start -->
+    <%= f.text_field :best_hole, class: "form-control" %>
+    <!-- Input for best_hole end -->
+  </div>
+  <!-- Label and input for best_hole end -->
+
+  <!-- Label and input for worst_hole start -->
+  <div class="form-group">
+    <%= f.label :worst_hole %>
+
+    <!-- Input for worst_hole start -->
+    <%= f.text_field :worst_hole, class: "form-control" %>
+    <!-- Input for worst_hole end -->
+  </div>
+  <!-- Label and input for worst_hole end -->
+
+  <!-- Label and input for reason_wonlost start -->
+  <div class="form-group">
+    <%= f.label :reason_wonlost %>
+    <!-- Input for reason_wonlost start -->
+    <%= f.text_area :reason_wonlost, rows: "3", class: "form-control" %>
+    <!-- Input for reason_wonlost end -->
+  </div>
+  <!-- Label and input for reason_wonlost end -->
+
+  <!-- Label and input for best_hole_description start -->
+  <div class="form-group">
+    <%= f.label :best_hole_description %>
+
+    <!-- Input for best_hole_description start -->
+    <%= f.text_field :best_hole_description, class: "form-control" %>
+    <!-- Input for best_hole_description end -->
+  </div>
+  <!-- Label and input for best_hole_description end -->
+
+  <!-- Label and input for worst_hole_description start -->
+  <div class="form-group">
+    <%= f.label :worst_hole_description %>
+
+    <!-- Input for worst_hole_description start -->
+    <%= f.text_field :worst_hole_description, class: "form-control" %>
+    <!-- Input for worst_hole_description end -->
+  </div>
+  <!-- Label and input for worst_hole_description end -->
+
+  <%= f.submit "Create round", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

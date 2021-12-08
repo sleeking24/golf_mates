@@ -8,6 +8,7 @@ class HolesResultsController < ApplicationController
 
   # GET /holes_results/1
   def show
+    @shot = Shot.new
   end
 
   # GET /holes_results/new
@@ -24,7 +25,12 @@ class HolesResultsController < ApplicationController
     @holes_result = HolesResult.new(holes_result_params)
 
     if @holes_result.save
-      redirect_to @holes_result, notice: 'Holes result was successfully created.'
+      message = 'HolesResult was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @holes_result, notice: message
+      end
     else
       render :new
     end

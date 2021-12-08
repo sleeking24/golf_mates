@@ -8,6 +8,8 @@ class GolfCoursesController < ApplicationController
 
   # GET /golf_courses/1
   def show
+    @round = Round.new
+    @holes_overview = HolesOverview.new
   end
 
   # GET /golf_courses/new

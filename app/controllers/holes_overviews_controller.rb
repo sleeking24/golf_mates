@@ -24,7 +24,12 @@ class HolesOverviewsController < ApplicationController
     @holes_overview = HolesOverview.new(holes_overview_params)
 
     if @holes_overview.save
-      redirect_to @holes_overview, notice: 'Holes overview was successfully created.'
+      message = 'HolesOverview was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @holes_overview, notice: message
+      end
     else
       render :new
     end

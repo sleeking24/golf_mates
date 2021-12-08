@@ -8,6 +8,7 @@ class RoundsController < ApplicationController
 
   # GET /rounds/1
   def show
+    @holes_result = HolesResult.new
   end
 
   # GET /rounds/new
@@ -24,7 +25,12 @@ class RoundsController < ApplicationController
     @round = Round.new(round_params)
 
     if @round.save
-      redirect_to @round, notice: 'Round was successfully created.'
+      message = 'Round was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @round, notice: message
+      end
     else
       render :new
     end
