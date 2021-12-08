@@ -1,4 +1,6 @@
 class RoundsController < ApplicationController
+  before_action :current_user_must_be_round_user, only: [:edit, :update, :destroy] 
+
   before_action :set_round, only: [:show, :edit, :update, :destroy]
 
   # GET /rounds
@@ -58,6 +60,14 @@ class RoundsController < ApplicationController
 
 
   private
+
+  def current_user_must_be_round_user
+    set_round
+    unless current_user == @round.user
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_round
       @round = Round.find(params[:id])
