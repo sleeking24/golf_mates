@@ -1,5 +1,7 @@
 ActiveAdmin.register HolesResult do
 
+ permit_params :round_id, :hole_number, :number_of_strokes
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
