@@ -8,6 +8,9 @@ class HolesResultResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :shots,
+             foreign_key: :hole_id
+
   belongs_to :round
 
   # Indirect associations

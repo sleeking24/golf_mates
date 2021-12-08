@@ -10,6 +10,9 @@ class ShotResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :hole,
+             resource: HolesResultResource
+
   # Indirect associations
 
 end
