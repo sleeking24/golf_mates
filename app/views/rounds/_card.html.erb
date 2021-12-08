@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Course</dt>
       <!-- Display course_id start -->
-      <dd><%= round.course_id %></dd>
+      <dd>
+        <% if @round.course.present? %>
+          <%= link_to round.course, round.course %>
+        <% end %>
+      </dd>
       <!-- Display course_id end -->
 
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= round.user_id %></dd>
+      <dd>
+        <% if @round.user.present? %>
+          <%= link_to round.user, round.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Score</dt>

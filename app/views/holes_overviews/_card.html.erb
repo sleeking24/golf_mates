@@ -22,7 +22,11 @@
 
       <dt>Golf course</dt>
       <!-- Display golf_course_id start -->
-      <dd><%= holes_overview.golf_course_id %></dd>
+      <dd>
+        <% if @holes_overview.golf_course.present? %>
+          <%= link_to holes_overview.golf_course, holes_overview.golf_course %>
+        <% end %>
+      </dd>
       <!-- Display golf_course_id end -->
 
     </dl>

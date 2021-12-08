@@ -27,7 +27,11 @@
 
       <dt>Hole</dt>
       <!-- Display hole_id start -->
-      <dd><%= shot.hole_id %></dd>
+      <dd>
+        <% if @shot.hole.present? %>
+          <%= link_to shot.hole, shot.hole %>
+        <% end %>
+      </dd>
       <!-- Display hole_id end -->
 
     </dl>
