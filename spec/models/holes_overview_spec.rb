@@ -12,5 +12,7 @@ RSpec.describe HolesOverview, type: :model do
 
     describe "Validations" do
 
+    it { should validate_numericality_of(:hole_number).is_less_than(18).is_greater_than_or_equal_to(1) }
+
     end
 end

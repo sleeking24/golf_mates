@@ -5,6 +5,8 @@ class HolesOverview < ApplicationRecord
 
   # Validations
 
+  validates :hole_number, :numericality => { :less_than_or_equal_to => 18, :greater_than_or_equal_to => 1 }
+
   # Scopes
 
   def to_s
