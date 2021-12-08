@@ -1,5 +1,7 @@
 ActiveAdmin.register Shot do
 
+ permit_params :shot_distance, :shot_results, :distance_to_green, :shot_type, :hole_id
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
