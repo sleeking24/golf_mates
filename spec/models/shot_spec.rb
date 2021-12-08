@@ -4,6 +4,8 @@ RSpec.describe Shot, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:hole) }
+
     end
 
     describe "InDirect Associations" do

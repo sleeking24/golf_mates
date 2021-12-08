@@ -1,6 +1,9 @@
 class Shot < ApplicationRecord
   # Direct associations
 
+  belongs_to :hole,
+             :class_name => "HolesResult"
+
   # Indirect associations
 
   # Validations

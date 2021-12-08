@@ -1,6 +1,10 @@
 class HolesResult < ApplicationRecord
   # Direct associations
 
+  has_many   :shots,
+             :foreign_key => "hole_id",
+             :dependent => :destroy
+
   belongs_to :round
 
   # Indirect associations
