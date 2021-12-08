@@ -6,33 +6,23 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Shot distance</dt>
-      <!-- Display shot_distance start -->
       <dd><%= shot.shot_distance %></dd>
-      <!-- Display shot_distance end -->
 
       <dt>Shot results</dt>
-      <!-- Display shot_results start -->
       <dd><%= shot.shot_results %></dd>
-      <!-- Display shot_results end -->
 
       <dt>Distance to green</dt>
-      <!-- Display distance_to_green start -->
       <dd><%= shot.distance_to_green %></dd>
-      <!-- Display distance_to_green end -->
 
       <dt>Shot type</dt>
-      <!-- Display shot_type start -->
       <dd><%= shot.shot_type %></dd>
-      <!-- Display shot_type end -->
 
       <dt>Hole</dt>
-      <!-- Display hole_id start -->
       <dd>
         <% if @shot.hole.present? %>
           <%= link_to shot.hole, shot.hole %>
         <% end %>
       </dd>
-      <!-- Display hole_id end -->
 
     </dl>
 
@@ -41,21 +31,17 @@
         <%= link_to_show_or_back shot, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link shot start -->
       <div class="col">
         <%= link_to edit_shot_url(shot), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link shot end -->
 
-      <!-- Delete link shot start -->
       <div class="col">
         <%= link_to shot, method: :delete, data: { confirm: "Do you really want to delete this shot?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link shot end -->
     </div>
   </div>
 

@@ -1,52 +1,30 @@
-<!-- Form shot start -->
 <%= form_with(model: @shot, local: true) do |f| %>
-<!-- Form shot end -->
 
-  <!-- Label and input for shot_distance start -->
   <div class="form-group">
     <%= f.label :shot_distance %>
 
-    <!-- Input for shot_distance start -->
     <%= f.text_field :shot_distance, class: "form-control" %>
-    <!-- Input for shot_distance end -->
   </div>
-  <!-- Label and input for shot_distance end -->
 
-  <!-- Label and input for shot_results start -->
   <div class="form-group">
     <%= f.label :shot_results %>
 
-    <!-- Input for shot_results start -->
     <%= f.text_field :shot_results, class: "form-control" %>
-    <!-- Input for shot_results end -->
   </div>
-  <!-- Label and input for shot_results end -->
 
-  <!-- Label and input for distance_to_green start -->
   <div class="form-group">
     <%= f.label :distance_to_green %>
 
-    <!-- Input for distance_to_green start -->
     <%= f.text_field :distance_to_green, class: "form-control" %>
-    <!-- Input for distance_to_green end -->
   </div>
-  <!-- Label and input for distance_to_green end -->
 
-  <!-- Label and input for shot_type start -->
   <div class="form-group">
     <%= f.label :shot_type %>
 
-    <!-- Input for shot_type start -->
     <%= f.text_field :shot_type, class: "form-control" %>
-    <!-- Input for shot_type end -->
   </div>
-  <!-- Label and input for shot_type end -->
 
-  <!-- Label and input for hole_id start -->
-  <!-- Input for hole_id start -->
   <%= f.hidden_field :hole_id, value: @holes_result.id %>
-  <!-- Input for hole_id end -->
-  <!-- Label and input for hole_id end -->
 
   <%= f.submit "Create shot", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

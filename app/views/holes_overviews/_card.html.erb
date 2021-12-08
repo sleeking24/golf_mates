@@ -6,28 +6,20 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Hole number</dt>
-      <!-- Display hole_number start -->
       <dd><%= holes_overview.hole_number %></dd>
-      <!-- Display hole_number end -->
 
       <dt>Distance to hole</dt>
-      <!-- Display distance_to_hole start -->
       <dd><%= holes_overview.distance_to_hole %></dd>
-      <!-- Display distance_to_hole end -->
 
       <dt>Distance to green</dt>
-      <!-- Display distance_to_green start -->
       <dd><%= holes_overview.distance_to_green %></dd>
-      <!-- Display distance_to_green end -->
 
       <dt>Golf course</dt>
-      <!-- Display golf_course_id start -->
       <dd>
         <% if @holes_overview.golf_course.present? %>
           <%= link_to holes_overview.golf_course, holes_overview.golf_course %>
         <% end %>
       </dd>
-      <!-- Display golf_course_id end -->
 
     </dl>
 
@@ -36,21 +28,17 @@
         <%= link_to_show_or_back holes_overview, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link holes_overview start -->
       <div class="col">
         <%= link_to edit_holes_overview_url(holes_overview), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link holes_overview end -->
 
-      <!-- Delete link holes_overview start -->
       <div class="col">
         <%= link_to holes_overview, method: :delete, data: { confirm: "Do you really want to delete this holes_overview?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link holes_overview end -->
     </div>
   </div>
 

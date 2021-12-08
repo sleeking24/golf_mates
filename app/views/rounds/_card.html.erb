@@ -6,52 +6,36 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Course</dt>
-      <!-- Display course_id start -->
       <dd>
         <% if @round.course.present? %>
           <%= link_to round.course, round.course %>
         <% end %>
       </dd>
-      <!-- Display course_id end -->
 
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @round.user.present? %>
           <%= link_to round.user, round.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Score</dt>
-      <!-- Display score start -->
       <dd><%= round.score %></dd>
-      <!-- Display score end -->
 
       <dt>Best hole</dt>
-      <!-- Display best_hole start -->
       <dd><%= round.best_hole %></dd>
-      <!-- Display best_hole end -->
 
       <dt>Worst hole</dt>
-      <!-- Display worst_hole start -->
       <dd><%= round.worst_hole %></dd>
-      <!-- Display worst_hole end -->
 
       <dt>Reason wonlost</dt>
-      <!-- Display reason_wonlost start -->
       <dd><%= round.reason_wonlost %></dd>
-      <!-- Display reason_wonlost end -->
 
       <dt>Best hole description</dt>
-      <!-- Display best_hole_description start -->
       <dd><%= round.best_hole_description %></dd>
-      <!-- Display best_hole_description end -->
 
       <dt>Worst hole description</dt>
-      <!-- Display worst_hole_description start -->
       <dd><%= round.worst_hole_description %></dd>
-      <!-- Display worst_hole_description end -->
 
     </dl>
 
@@ -60,7 +44,6 @@
         <%= link_to_show_or_back round, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link round start -->
       <div class="col">
         <% if current_user == @round.user %>
           <%= link_to edit_round_url(round), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -68,9 +51,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link round end -->
 
-      <!-- Delete link round start -->
       <div class="col">
         <% if current_user == @round.user %>
           <%= link_to round, method: :delete, data: { confirm: "Do you really want to delete this round?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -78,7 +59,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link round end -->
     </div>
   </div>
 

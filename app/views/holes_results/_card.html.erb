@@ -6,23 +6,17 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Round</dt>
-      <!-- Display round_id start -->
       <dd>
         <% if @holes_result.round.present? %>
           <%= link_to holes_result.round, holes_result.round %>
         <% end %>
       </dd>
-      <!-- Display round_id end -->
 
       <dt>Hole number</dt>
-      <!-- Display hole_number start -->
       <dd><%= holes_result.hole_number %></dd>
-      <!-- Display hole_number end -->
 
       <dt>Number of strokes</dt>
-      <!-- Display number_of_strokes start -->
       <dd><%= holes_result.number_of_strokes %></dd>
-      <!-- Display number_of_strokes end -->
 
     </dl>
 
@@ -31,21 +25,17 @@
         <%= link_to_show_or_back holes_result, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link holes_result start -->
       <div class="col">
         <%= link_to edit_holes_result_url(holes_result), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link holes_result end -->
 
-      <!-- Delete link holes_result start -->
       <div class="col">
         <%= link_to holes_result, method: :delete, data: { confirm: "Do you really want to delete this holes_result?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link holes_result end -->
     </div>
   </div>
 

@@ -1,7 +1,6 @@
 <% was_validated = holes_overview.errors.any? %>
 
 <%= form_with(model: holes_overview, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for hole_number start -->
   <div class="form-group">
     <% hole_number_class = "form-control" %>
     <% hole_number_was_invalid = holes_overview.errors.include?(:hole_number) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :hole_number %>
-    <!-- Input for hole_number start -->
     <%= f.number_field :hole_number, class: hole_number_class, placeholder: "Enter hole number" %>
-    <!-- Input for hole_number end -->
     <% if hole_number_was_invalid %>
       <% holes_overview.errors.full_messages_for(:hole_number).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for hole_number end -->
-  <!-- Label and input for distance_to_hole start -->
   <div class="form-group">
     <% distance_to_hole_class = "form-control" %>
     <% distance_to_hole_was_invalid = holes_overview.errors.include?(:distance_to_hole) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :distance_to_hole %>
-    <!-- Input for distance_to_hole start -->
     <%= f.text_field :distance_to_hole, class: distance_to_hole_class, placeholder: "Enter distance to hole" %>
-    <!-- Input for distance_to_hole end -->
     <% if distance_to_hole_was_invalid %>
       <% holes_overview.errors.full_messages_for(:distance_to_hole).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for distance_to_hole end -->
-  <!-- Label and input for distance_to_green start -->
   <div class="form-group">
     <% distance_to_green_class = "form-control" %>
     <% distance_to_green_was_invalid = holes_overview.errors.include?(:distance_to_green) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :distance_to_green %>
-    <!-- Input for distance_to_green start -->
     <%= f.text_field :distance_to_green, class: distance_to_green_class, placeholder: "Enter distance to green" %>
-    <!-- Input for distance_to_green end -->
     <% if distance_to_green_was_invalid %>
       <% holes_overview.errors.full_messages_for(:distance_to_green).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for distance_to_green end -->
-  <!-- Label and input for golf_course_id start -->
   <div class="form-group">
     <% golf_course_class = "form-control" %>
     <% golf_course_was_invalid = holes_overview.errors.include?(:golf_course) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :golf_course_id %>
-    <!-- Input for golf_course_id start -->
     <%= f.collection_select :golf_course_id, GolfCourse.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for golf_course_id end -->
     <% if golf_course_was_invalid %>
       <% holes_overview.errors.full_messages_for(:golf_course).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,6 +89,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for golf_course_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

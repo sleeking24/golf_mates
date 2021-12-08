@@ -1,12 +1,6 @@
-<!-- Form friend start -->
 <%= form_with(model: @friend, local: true) do |f| %>
-<!-- Form friend end -->
 
-  <!-- Label and input for friend_id start -->
-  <!-- Input for friend_id start -->
   <%= f.hidden_field :friend_id, value: @user.id %>
-  <!-- Input for friend_id end -->
-  <!-- Label and input for friend_id end -->
 
   <%= f.submit "Create friend", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

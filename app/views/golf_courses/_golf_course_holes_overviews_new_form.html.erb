@@ -1,42 +1,24 @@
-<!-- Form holes_overview start -->
 <%= form_with(model: @holes_overview, local: true) do |f| %>
-<!-- Form holes_overview end -->
 
-  <!-- Label and input for hole_number start -->
   <div class="form-group">
     <%= f.label :hole_number %>
 
-    <!-- Input for hole_number start -->
     <%= f.text_field :hole_number, class: "form-control" %>
-    <!-- Input for hole_number end -->
   </div>
-  <!-- Label and input for hole_number end -->
 
-  <!-- Label and input for distance_to_hole start -->
   <div class="form-group">
     <%= f.label :distance_to_hole %>
 
-    <!-- Input for distance_to_hole start -->
     <%= f.text_field :distance_to_hole, class: "form-control" %>
-    <!-- Input for distance_to_hole end -->
   </div>
-  <!-- Label and input for distance_to_hole end -->
 
-  <!-- Label and input for distance_to_green start -->
   <div class="form-group">
     <%= f.label :distance_to_green %>
 
-    <!-- Input for distance_to_green start -->
     <%= f.text_field :distance_to_green, class: "form-control" %>
-    <!-- Input for distance_to_green end -->
   </div>
-  <!-- Label and input for distance_to_green end -->
 
-  <!-- Label and input for golf_course_id start -->
-  <!-- Input for golf_course_id start -->
   <%= f.hidden_field :golf_course_id, value: @golf_course.id %>
-  <!-- Input for golf_course_id end -->
-  <!-- Label and input for golf_course_id end -->
 
   <%= f.submit "Create holes overview", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

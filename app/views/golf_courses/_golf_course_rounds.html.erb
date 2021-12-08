@@ -10,26 +10,20 @@
   <ul class="list-group list-group-flush">
     <% @golf_course.rounds.each do |round| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to round, round %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <% if current_user == round.user %>
           <%= link_to round, method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="golf_course_rounds_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "golf_courses/golf_course_rounds_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

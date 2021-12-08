@@ -1,32 +1,18 @@
-<!-- Form holes_result start -->
 <%= form_with(model: @holes_result, local: true) do |f| %>
-<!-- Form holes_result end -->
 
-  <!-- Label and input for round_id start -->
-  <!-- Input for round_id start -->
   <%= f.hidden_field :round_id, value: @round.id %>
-  <!-- Input for round_id end -->
-  <!-- Label and input for round_id end -->
 
-  <!-- Label and input for hole_number start -->
   <div class="form-group">
     <%= f.label :hole_number %>
 
-    <!-- Input for hole_number start -->
     <%= f.text_field :hole_number, class: "form-control" %>
-    <!-- Input for hole_number end -->
   </div>
-  <!-- Label and input for hole_number end -->
 
-  <!-- Label and input for number_of_strokes start -->
   <div class="form-group">
     <%= f.label :number_of_strokes %>
 
-    <!-- Input for number_of_strokes start -->
     <%= f.text_field :number_of_strokes, class: "form-control" %>
-    <!-- Input for number_of_strokes end -->
   </div>
-  <!-- Label and input for number_of_strokes end -->
 
   <%= f.submit "Create holes result", class: "btn btn-block btn-outline-secondary" %>
 <% end %>
