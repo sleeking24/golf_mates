@@ -16,7 +16,7 @@
 
     <%= f.label :friend_id %>
     <!-- Input for friend_id start -->
-    <%= f.number_field :friend_id, class: friend_class, placeholder: "Enter friend" %>
+    <%= f.collection_select :friend_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for friend_id end -->
     <% if friend_was_invalid %>
       <% friend.errors.full_messages_for(:friend).each do |message| %>
