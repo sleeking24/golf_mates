@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "golf_courses#index"
   resources :friends
   resources :shots
   resources :holes_results
