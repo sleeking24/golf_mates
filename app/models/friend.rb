@@ -1,6 +1,9 @@
 class Friend < ApplicationRecord
   # Direct associations
 
+  belongs_to :friend,
+             :class_name => "User"
+
   # Indirect associations
 
   # Validations
