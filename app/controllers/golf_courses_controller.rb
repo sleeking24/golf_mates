@@ -4,6 +4,11 @@ class GolfCoursesController < ApplicationController
   # GET /golf_courses
   def index
     @golf_courses = GolfCourse.all
+    @location_hash = Gmaps4rails.build_markers(@golf_courses.where.not(:location_latitude => nil)) do |golf_course, marker|
+      marker.lat golf_course.location_latitude
+      marker.lng golf_course.location_longitude
+      marker.infowindow "<h5><a href='/golf_courses/#{golf_course.id}'>#{golf_course.name}</a></h5><small>#{golf_course.location_formatted_address}</small>"
+    end
   end
 
   # GET /golf_courses/1

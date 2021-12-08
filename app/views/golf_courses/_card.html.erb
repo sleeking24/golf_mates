@@ -17,7 +17,11 @@
 
       <dt>Location</dt>
       <!-- Display location start -->
-      <dd><%= golf_course.location %></dd>
+      <dd>
+        <div>
+          <%= render partial: "golf_courses/one_photo_map" %>
+        </div>
+      </dd>
       <!-- Display location end -->
 
       <dt>Photo</dt>
