@@ -16,7 +16,7 @@
 
     <%= f.label :course_id %>
     <!-- Input for course_id start -->
-    <%= f.number_field :course_id, class: course_class, placeholder: "Enter course" %>
+    <%= f.collection_select :course_id, GolfCourse.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for course_id end -->
     <% if course_was_invalid %>
       <% round.errors.full_messages_for(:course).each do |message| %>
