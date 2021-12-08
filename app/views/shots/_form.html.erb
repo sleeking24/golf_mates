@@ -120,7 +120,7 @@
 
     <%= f.label :hole_id %>
     <!-- Input for hole_id start -->
-    <%= f.number_field :hole_id, class: hole_class, placeholder: "Enter hole" %>
+    <%= f.collection_select :hole_id, HolesResult.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for hole_id end -->
     <% if hole_was_invalid %>
       <% shot.errors.full_messages_for(:hole).each do |message| %>
