@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :friends
   resources :shots
   resources :holes_results
   resources :rounds

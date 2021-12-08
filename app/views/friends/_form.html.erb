@@ -1,0 +1,31 @@
+<% was_validated = friend.errors.any? %>
+
+<%= form_with(model: friend, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for friend_id start -->
+  <div class="form-group">
+    <% friend_class = "form-control" %>
+    <% friend_was_invalid = friend.errors.include?(:friend) %>
+
+    <% if was_validated %>
+      <% if friend_was_invalid %>
+        <% friend_class << " is-invalid" %>
+      <% else %>
+        <% friend_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :friend_id %>
+    <!-- Input for friend_id start -->
+    <%= f.number_field :friend_id, class: friend_class, placeholder: "Enter friend" %>
+    <!-- Input for friend_id end -->
+    <% if friend_was_invalid %>
+      <% friend.errors.full_messages_for(:friend).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for friend_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

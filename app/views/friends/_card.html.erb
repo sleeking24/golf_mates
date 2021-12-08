@@ -1,0 +1,41 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Friend #<%= friend.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Friend</dt>
+      <!-- Display friend_id start -->
+      <dd><%= friend.friend_id %></dd>
+      <!-- Display friend_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back friend, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link friend start -->
+      <div class="col">
+        <%= link_to edit_friend_url(friend), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link friend end -->
+
+      <!-- Delete link friend start -->
+      <div class="col">
+        <%= link_to friend, method: :delete, data: { confirm: "Do you really want to delete this friend?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link friend end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(friend.updated_at) %> ago
+  </div>
+</div>
