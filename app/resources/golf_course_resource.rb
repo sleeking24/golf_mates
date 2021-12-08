@@ -1,0 +1,14 @@
+class GolfCourseResource < ApplicationResource
+  attribute :id, :integer, writable: false
+  attribute :created_at, :datetime, writable: false
+  attribute :updated_at, :datetime, writable: false
+  attribute :name, :string
+  attribute :description, :string
+  attribute :location, :string
+  attribute :photo, :string
+
+  # Direct associations
+
+  # Indirect associations
+
+end
