@@ -9,6 +9,9 @@ class GolfCourseResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :rounds,
+             foreign_key: :course_id
+
   has_many   :holes_overviews
 
   # Indirect associations

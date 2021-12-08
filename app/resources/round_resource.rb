@@ -13,6 +13,9 @@ class RoundResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :course,
+             resource: GolfCourseResource
+
   belongs_to :user
 
   # Indirect associations
