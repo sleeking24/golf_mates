@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Holes Overviews
+
+    <a data-toggle="collapse" href="#golf_course_holes_overviews_new_form">
+      Add holes overview
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @golf_course.holes_overviews.each do |holes_overview| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to holes_overview, holes_overview %>
+        <!-- Show link end -->
+
+        <!-- Delete link start -->
+        <%= link_to holes_overview, method: :delete, data: { confirm: "Do you really want to delete this holes_overview" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+        <!-- Delete link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="golf_course_holes_overviews_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>

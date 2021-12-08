@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Shots
+
+    <a data-toggle="collapse" href="#holes_result_shots_new_form">
+      Add shot
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @holes_result.shots.each do |shot| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to shot, shot %>
+        <!-- Show link end -->
+
+        <!-- Delete link start -->
+        <%= link_to shot, method: :delete, data: { confirm: "Do you really want to delete this shot" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+        <!-- Delete link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="holes_result_shots_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>

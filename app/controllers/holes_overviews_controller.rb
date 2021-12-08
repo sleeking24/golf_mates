@@ -42,8 +42,14 @@ class HolesOverviewsController < ApplicationController
   # DELETE /holes_overviews/1
   def destroy
     @holes_overview.destroy
-    redirect_to holes_overviews_url, notice: 'Holes overview was successfully destroyed.'
+    message = "HolesOverview was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to holes_overviews_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
