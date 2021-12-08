@@ -1,0 +1,135 @@
+<% was_validated = shot.errors.any? %>
+
+<%= form_with(model: shot, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for shot_distance start -->
+  <div class="form-group">
+    <% shot_distance_class = "form-control" %>
+    <% shot_distance_was_invalid = shot.errors.include?(:shot_distance) %>
+
+    <% if was_validated %>
+      <% if shot_distance_was_invalid %>
+        <% shot_distance_class << " is-invalid" %>
+      <% else %>
+        <% shot_distance_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :shot_distance %>
+    <!-- Input for shot_distance start -->
+    <%= f.text_field :shot_distance, class: shot_distance_class, placeholder: "Enter shot distance" %>
+    <!-- Input for shot_distance end -->
+    <% if shot_distance_was_invalid %>
+      <% shot.errors.full_messages_for(:shot_distance).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for shot_distance end -->
+  <!-- Label and input for shot_results start -->
+  <div class="form-group">
+    <% shot_result_class = "form-control" %>
+    <% shot_result_was_invalid = shot.errors.include?(:shot_result) %>
+
+    <% if was_validated %>
+      <% if shot_result_was_invalid %>
+        <% shot_result_class << " is-invalid" %>
+      <% else %>
+        <% shot_result_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :shot_results %>
+    <!-- Input for shot_results start -->
+    <%= f.text_field :shot_results, class: shot_result_class, placeholder: "Enter shot result" %>
+    <!-- Input for shot_results end -->
+    <% if shot_result_was_invalid %>
+      <% shot.errors.full_messages_for(:shot_result).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for shot_results end -->
+  <!-- Label and input for distance_to_green start -->
+  <div class="form-group">
+    <% distance_to_green_class = "form-control" %>
+    <% distance_to_green_was_invalid = shot.errors.include?(:distance_to_green) %>
+
+    <% if was_validated %>
+      <% if distance_to_green_was_invalid %>
+        <% distance_to_green_class << " is-invalid" %>
+      <% else %>
+        <% distance_to_green_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :distance_to_green %>
+    <!-- Input for distance_to_green start -->
+    <%= f.text_field :distance_to_green, class: distance_to_green_class, placeholder: "Enter distance to green" %>
+    <!-- Input for distance_to_green end -->
+    <% if distance_to_green_was_invalid %>
+      <% shot.errors.full_messages_for(:distance_to_green).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for distance_to_green end -->
+  <!-- Label and input for shot_type start -->
+  <div class="form-group">
+    <% shot_type_class = "form-control" %>
+    <% shot_type_was_invalid = shot.errors.include?(:shot_type) %>
+
+    <% if was_validated %>
+      <% if shot_type_was_invalid %>
+        <% shot_type_class << " is-invalid" %>
+      <% else %>
+        <% shot_type_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :shot_type %>
+    <!-- Input for shot_type start -->
+    <%= f.text_field :shot_type, class: shot_type_class, placeholder: "Enter shot type" %>
+    <!-- Input for shot_type end -->
+    <% if shot_type_was_invalid %>
+      <% shot.errors.full_messages_for(:shot_type).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for shot_type end -->
+  <!-- Label and input for hole_id start -->
+  <div class="form-group">
+    <% hole_class = "form-control" %>
+    <% hole_was_invalid = shot.errors.include?(:hole) %>
+
+    <% if was_validated %>
+      <% if hole_was_invalid %>
+        <% hole_class << " is-invalid" %>
+      <% else %>
+        <% hole_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :hole_id %>
+    <!-- Input for hole_id start -->
+    <%= f.number_field :hole_id, class: hole_class, placeholder: "Enter hole" %>
+    <!-- Input for hole_id end -->
+    <% if hole_was_invalid %>
+      <% shot.errors.full_messages_for(:hole).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for hole_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
