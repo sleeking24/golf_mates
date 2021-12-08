@@ -1,6 +1,8 @@
 class HolesOverview < ApplicationRecord
   # Direct associations
 
+  belongs_to :golf_course
+
   # Indirect associations
 
   # Validations

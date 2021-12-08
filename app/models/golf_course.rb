@@ -1,6 +1,9 @@
 class GolfCourse < ApplicationRecord
   # Direct associations
 
+  has_many   :holes_overviews,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
