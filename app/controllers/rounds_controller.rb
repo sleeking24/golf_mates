@@ -5,7 +5,8 @@ class RoundsController < ApplicationController
 
   # GET /rounds
   def index
-    @rounds = Round.page(params[:page]).per(10)
+    @q = Round.ransack(params[:q])
+    @rounds = @q.result(:distinct => true).includes(:user, :course, :holes_results).page(params[:page]).per(10)
   end
 
   # GET /rounds/1

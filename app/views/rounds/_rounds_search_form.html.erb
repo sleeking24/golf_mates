@@ -1,0 +1,115 @@
+<%= search_form_for @q, :class => collapse_search_form, :id => "rounds_filters" do |f| %>
+  <p class="lead">Narrow results:</p>
+
+  <div class="form-group">
+    <%= f.label :worst_hole_description_cont, "Worst hole description contains" %>
+    <%= f.text_field :worst_hole_description_cont, :class => "form-control", :placeholder => "Worst hole description contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :best_hole_description_cont, "Best hole description contains" %>
+    <%= f.text_field :best_hole_description_cont, :class => "form-control", :placeholder => "Best hole description contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :reason_wonlost_cont, "Reason wonlost contains" %>
+    <%= f.text_field :reason_wonlost_cont, :class => "form-control", :placeholder => "Reason wonlost contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :worst_hole, "Worst hole" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <%= f.text_field :worst_hole_gteq, :class => "form-control", :placeholder => "Worst hole greater than or equal to" %>
+      </div>
+      <div class='col-md-6'>
+        <%= f.text_field :worst_hole_lteq, :class => "form-control", :placeholder => "Worst hole less than or equal to" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :best_hole, "Best hole" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <%= f.text_field :best_hole_gteq, :class => "form-control", :placeholder => "Best hole greater than or equal to" %>
+      </div>
+      <div class='col-md-6'>
+        <%= f.text_field :best_hole_lteq, :class => "form-control", :placeholder => "Best hole less than or equal to" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :score, "Score" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <%= f.text_field :score_gteq, :class => "form-control", :placeholder => "Score greater than or equal to" %>
+      </div>
+      <div class='col-md-6'>
+        <%= f.text_field :score_lteq, :class => "form-control", :placeholder => "Score less than or equal to" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :created_at, "Created at" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='created_atgteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Created at greater than or equal to", :data => {:target => '#created_atgteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atgteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='created_atlteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Created at less than or equal to", :data => {:target => '#created_atlteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atlteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#created_atgteqPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atlteqPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atgteqPicker').on("dp.change", function (e) {
+              $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#created_atlteqPicker').on("dp.change", function (e) {
+              $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+
+  <div class="form-group">
+    <%= f.label :user_email_cont, "User email contains" %>
+    <%= f.text_field :user_email_cont, :class => "form-control", :placeholder => "User email contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :course_name_cont, "Course name contains" %>
+    <%= f.text_field :course_name_cont, :class => "form-control", :placeholder => "Course name contains" %>
+  </div>
+
+
+  <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+  <a href="/rounds" class="btn btn-outline-secondary btn-block mb-1">Clear filters</a>
+
+<% end %>
+
+<a class="btn btn-outline-secondary btn-block mb-1" data-toggle="collapse" href="#rounds_filters">
+  Show filters
+</a>

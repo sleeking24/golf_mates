@@ -3,7 +3,8 @@ class FriendsController < ApplicationController
 
   # GET /friends
   def index
-    @friends = Friend.page(params[:page]).per(10)
+    @q = Friend.ransack(params[:q])
+    @friends = @q.result(:distinct => true).includes(:friend).page(params[:page]).per(10)
   end
 
   # GET /friends/1
