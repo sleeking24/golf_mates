@@ -1,0 +1,109 @@
+<% was_validated = golf_course.errors.any? %>
+
+<%= form_with(model: golf_course, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <% name_class = "form-control" %>
+    <% name_was_invalid = golf_course.errors.include?(:name) %>
+
+    <% if was_validated %>
+      <% if name_was_invalid %>
+        <% name_class << " is-invalid" %>
+      <% else %>
+        <% name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :name %>
+    <!-- Input for name start -->
+    <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
+    <!-- Input for name end -->
+    <% if name_was_invalid %>
+      <% golf_course.errors.full_messages_for(:name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for name end -->
+  <!-- Label and input for description start -->
+  <div class="form-group">
+    <% description_class = "form-control" %>
+    <% description_was_invalid = golf_course.errors.include?(:description) %>
+
+    <% if was_validated %>
+      <% if description_was_invalid %>
+        <% description_class << " is-invalid" %>
+      <% else %>
+        <% description_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :description %>
+    <!-- Input for description start -->
+    <%= f.text_area :description, class: description_class, placeholder: "Enter description" %>
+    <!-- Input for description end -->
+    <% if description_was_invalid %>
+      <% golf_course.errors.full_messages_for(:description).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for description end -->
+  <!-- Label and input for location start -->
+  <div class="form-group">
+    <% location_class = "form-control" %>
+    <% location_was_invalid = golf_course.errors.include?(:location) %>
+
+    <% if was_validated %>
+      <% if location_was_invalid %>
+        <% location_class << " is-invalid" %>
+      <% else %>
+        <% location_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :location %>
+    <!-- Input for location start -->
+    <%= f.text_field :location, class: location_class, placeholder: "Enter location" %>
+    <!-- Input for location end -->
+    <% if location_was_invalid %>
+      <% golf_course.errors.full_messages_for(:location).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for location end -->
+  <!-- Label and input for photo start -->
+  <div class="form-group">
+    <% photo_class = "form-control" %>
+    <% photo_was_invalid = golf_course.errors.include?(:photo) %>
+
+    <% if was_validated %>
+      <% if photo_was_invalid %>
+        <% photo_class << " is-invalid" %>
+      <% else %>
+        <% photo_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :photo %>
+    <!-- Input for photo start -->
+    <%= f.text_field :photo, class: photo_class, placeholder: "Enter photo" %>
+    <!-- Input for photo end -->
+    <% if photo_was_invalid %>
+      <% golf_course.errors.full_messages_for(:photo).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for photo end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

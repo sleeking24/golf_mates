@@ -1,0 +1,56 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Golf Course #<%= golf_course.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Name</dt>
+      <!-- Display name start -->
+      <dd><%= golf_course.name %></dd>
+      <!-- Display name end -->
+
+      <dt>Description</dt>
+      <!-- Display description start -->
+      <dd><%= golf_course.description %></dd>
+      <!-- Display description end -->
+
+      <dt>Location</dt>
+      <!-- Display location start -->
+      <dd><%= golf_course.location %></dd>
+      <!-- Display location end -->
+
+      <dt>Photo</dt>
+      <!-- Display photo start -->
+      <dd><%= golf_course.photo %></dd>
+      <!-- Display photo end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back golf_course, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link golf_course start -->
+      <div class="col">
+        <%= link_to edit_golf_course_url(golf_course), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link golf_course end -->
+
+      <!-- Delete link golf_course start -->
+      <div class="col">
+        <%= link_to golf_course, method: :delete, data: { confirm: "Do you really want to delete this golf_course?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link golf_course end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(golf_course.updated_at) %> ago
+  </div>
+</div>
