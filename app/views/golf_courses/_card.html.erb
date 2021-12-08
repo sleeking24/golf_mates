@@ -22,7 +22,9 @@
 
       <dt>Photo</dt>
       <!-- Display photo start -->
-      <dd><%= golf_course.photo %></dd>
+      <dd>
+        <%= cl_image_tag @golf_course.photo, class: "img-fluid" %>
+      </dd>
       <!-- Display photo end -->
 
     </dl>
