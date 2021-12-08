@@ -8,6 +8,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :friends,
+             foreign_key: :friend_id
+
   has_many   :rounds
 
   # Indirect associations

@@ -6,6 +6,9 @@ class FriendResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :friend,
+             resource: UserResource
+
   # Indirect associations
 
 end
