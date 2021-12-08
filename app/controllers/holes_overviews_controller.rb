@@ -1,24 +1,19 @@
 class HolesOverviewsController < ApplicationController
   before_action :set_holes_overview, only: %i[show edit update destroy]
 
-  # GET /holes_overviews
   def index
     @q = HolesOverview.ransack(params[:q])
     @holes_overviews = @q.result(distinct: true).includes(:golf_course).page(params[:page]).per(10)
   end
 
-  # GET /holes_overviews/1
   def show; end
 
-  # GET /holes_overviews/new
   def new
     @holes_overview = HolesOverview.new
   end
 
-  # GET /holes_overviews/1/edit
   def edit; end
 
-  # POST /holes_overviews
   def create
     @holes_overview = HolesOverview.new(holes_overview_params)
 
@@ -34,7 +29,6 @@ class HolesOverviewsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /holes_overviews/1
   def update
     if @holes_overview.update(holes_overview_params)
       redirect_to @holes_overview,
@@ -44,7 +38,6 @@ class HolesOverviewsController < ApplicationController
     end
   end
 
-  # DELETE /holes_overviews/1
   def destroy
     @holes_overview.destroy
     message = "HolesOverview was successfully deleted."
@@ -57,12 +50,10 @@ class HolesOverviewsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_holes_overview
     @holes_overview = HolesOverview.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def holes_overview_params
     params.require(:holes_overview).permit(:hole_number, :distance_to_hole,
                                            :distance_to_green, :golf_course_id)
