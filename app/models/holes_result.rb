@@ -1,6 +1,8 @@
 class HolesResult < ApplicationRecord
   # Direct associations
 
+  belongs_to :round
+
   # Indirect associations
 
   # Validations
