@@ -13,7 +13,7 @@ class Api::V1::FriendsController < Api::V1::GraphitiController
     friend = FriendResource.build(params)
 
     if friend.save
-      render jsonapi: friend, status: 201
+      render jsonapi: friend, status: :created
     else
       render jsonapi_errors: friend
     end
@@ -33,7 +33,7 @@ class Api::V1::FriendsController < Api::V1::GraphitiController
     friend = FriendResource.find(params)
 
     if friend.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: friend
     end

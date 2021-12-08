@@ -15,5 +15,4 @@ class GolfCourseResource < ApplicationResource
   has_many   :holes_overviews
 
   # Indirect associations
-
 end

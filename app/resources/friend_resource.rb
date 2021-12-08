@@ -10,5 +10,4 @@ class FriendResource < ApplicationResource
              resource: UserResource
 
   # Indirect associations
-
 end

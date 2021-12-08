@@ -2,7 +2,7 @@ class Friend < ApplicationRecord
   # Direct associations
 
   belongs_to :friend,
-             :class_name => "User"
+             class_name: "User"
 
   # Indirect associations
 
@@ -13,5 +13,4 @@ class Friend < ApplicationRecord
   def to_s
     friend.to_s
   end
-
 end

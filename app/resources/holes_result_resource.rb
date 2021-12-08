@@ -14,5 +14,4 @@ class HolesResultResource < ApplicationResource
   belongs_to :round
 
   # Indirect associations
-
 end

@@ -14,5 +14,4 @@ class ShotResource < ApplicationResource
              resource: HolesResultResource
 
   # Indirect associations
-
 end

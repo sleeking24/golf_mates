@@ -2,10 +2,10 @@ class Round < ApplicationRecord
   # Direct associations
 
   has_many   :holes_results,
-             :dependent => :destroy
+             dependent: :destroy
 
   belongs_to :course,
-             :class_name => "GolfCourse"
+             class_name: "GolfCourse"
 
   belongs_to :user
 
@@ -18,5 +18,4 @@ class Round < ApplicationRecord
   def to_s
     course.to_s
   end
-
 end

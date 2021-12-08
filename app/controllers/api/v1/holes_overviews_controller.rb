@@ -13,7 +13,7 @@ class Api::V1::HolesOverviewsController < Api::V1::GraphitiController
     holes_overview = HolesOverviewResource.build(params)
 
     if holes_overview.save
-      render jsonapi: holes_overview, status: 201
+      render jsonapi: holes_overview, status: :created
     else
       render jsonapi_errors: holes_overview
     end
@@ -33,7 +33,7 @@ class Api::V1::HolesOverviewsController < Api::V1::GraphitiController
     holes_overview = HolesOverviewResource.find(params)
 
     if holes_overview.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: holes_overview
     end

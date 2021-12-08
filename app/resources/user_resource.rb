@@ -14,5 +14,4 @@ class UserResource < ApplicationResource
   has_many   :rounds
 
   # Indirect associations
-
 end

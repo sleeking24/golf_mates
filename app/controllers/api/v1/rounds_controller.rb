@@ -13,7 +13,7 @@ class Api::V1::RoundsController < Api::V1::GraphitiController
     round = RoundResource.build(params)
 
     if round.save
-      render jsonapi: round, status: 201
+      render jsonapi: round, status: :created
     else
       render jsonapi_errors: round
     end
@@ -33,7 +33,7 @@ class Api::V1::RoundsController < Api::V1::GraphitiController
     round = RoundResource.find(params)
 
     if round.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: round
     end

@@ -1,15 +1,14 @@
 class HolesOverviewsController < ApplicationController
-  before_action :set_holes_overview, only: [:show, :edit, :update, :destroy]
+  before_action :set_holes_overview, only: %i[show edit update destroy]
 
   # GET /holes_overviews
   def index
     @q = HolesOverview.ransack(params[:q])
-    @holes_overviews = @q.result(:distinct => true).includes(:golf_course).page(params[:page]).per(10)
+    @holes_overviews = @q.result(distinct: true).includes(:golf_course).page(params[:page]).per(10)
   end
 
   # GET /holes_overviews/1
-  def show
-  end
+  def show; end
 
   # GET /holes_overviews/new
   def new
@@ -17,17 +16,16 @@ class HolesOverviewsController < ApplicationController
   end
 
   # GET /holes_overviews/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /holes_overviews
   def create
     @holes_overview = HolesOverview.new(holes_overview_params)
 
     if @holes_overview.save
-      message = 'HolesOverview was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "HolesOverview was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @holes_overview, notice: message
       end
@@ -39,7 +37,8 @@ class HolesOverviewsController < ApplicationController
   # PATCH/PUT /holes_overviews/1
   def update
     if @holes_overview.update(holes_overview_params)
-      redirect_to @holes_overview, notice: 'Holes overview was successfully updated.'
+      redirect_to @holes_overview,
+                  notice: "Holes overview was successfully updated."
     else
       render :edit
     end
@@ -49,22 +48,23 @@ class HolesOverviewsController < ApplicationController
   def destroy
     @holes_overview.destroy
     message = "HolesOverview was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to holes_overviews_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_holes_overview
-      @holes_overview = HolesOverview.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def holes_overview_params
-      params.require(:holes_overview).permit(:hole_number, :distance_to_hole, :distance_to_green, :golf_course_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_holes_overview
+    @holes_overview = HolesOverview.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def holes_overview_params
+    params.require(:holes_overview).permit(:hole_number, :distance_to_hole,
+                                           :distance_to_green, :golf_course_id)
+  end
 end

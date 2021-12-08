@@ -13,7 +13,7 @@ class Api::V1::ShotsController < Api::V1::GraphitiController
     shot = ShotResource.build(params)
 
     if shot.save
-      render jsonapi: shot, status: 201
+      render jsonapi: shot, status: :created
     else
       render jsonapi_errors: shot
     end
@@ -33,7 +33,7 @@ class Api::V1::ShotsController < Api::V1::GraphitiController
     shot = ShotResource.find(params)
 
     if shot.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: shot
     end

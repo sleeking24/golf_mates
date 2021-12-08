@@ -12,5 +12,4 @@ class HolesOverviewResource < ApplicationResource
   belongs_to :golf_course
 
   # Indirect associations
-
 end
