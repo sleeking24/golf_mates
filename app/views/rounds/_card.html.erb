@@ -1,0 +1,76 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Round #<%= round.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Course</dt>
+      <!-- Display course_id start -->
+      <dd><%= round.course_id %></dd>
+      <!-- Display course_id end -->
+
+      <dt>User</dt>
+      <!-- Display user_id start -->
+      <dd><%= round.user_id %></dd>
+      <!-- Display user_id end -->
+
+      <dt>Score</dt>
+      <!-- Display score start -->
+      <dd><%= round.score %></dd>
+      <!-- Display score end -->
+
+      <dt>Best hole</dt>
+      <!-- Display best_hole start -->
+      <dd><%= round.best_hole %></dd>
+      <!-- Display best_hole end -->
+
+      <dt>Worst hole</dt>
+      <!-- Display worst_hole start -->
+      <dd><%= round.worst_hole %></dd>
+      <!-- Display worst_hole end -->
+
+      <dt>Reason wonlost</dt>
+      <!-- Display reason_wonlost start -->
+      <dd><%= round.reason_wonlost %></dd>
+      <!-- Display reason_wonlost end -->
+
+      <dt>Best hole description</dt>
+      <!-- Display best_hole_description start -->
+      <dd><%= round.best_hole_description %></dd>
+      <!-- Display best_hole_description end -->
+
+      <dt>Worst hole description</dt>
+      <!-- Display worst_hole_description start -->
+      <dd><%= round.worst_hole_description %></dd>
+      <!-- Display worst_hole_description end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back round, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link round start -->
+      <div class="col">
+        <%= link_to edit_round_url(round), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link round end -->
+
+      <!-- Delete link round start -->
+      <div class="col">
+        <%= link_to round, method: :delete, data: { confirm: "Do you really want to delete this round?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link round end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(round.updated_at) %> ago
+  </div>
+</div>

@@ -1,0 +1,213 @@
+<% was_validated = round.errors.any? %>
+
+<%= form_with(model: round, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for course_id start -->
+  <div class="form-group">
+    <% course_class = "form-control" %>
+    <% course_was_invalid = round.errors.include?(:course) %>
+
+    <% if was_validated %>
+      <% if course_was_invalid %>
+        <% course_class << " is-invalid" %>
+      <% else %>
+        <% course_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :course_id %>
+    <!-- Input for course_id start -->
+    <%= f.number_field :course_id, class: course_class, placeholder: "Enter course" %>
+    <!-- Input for course_id end -->
+    <% if course_was_invalid %>
+      <% round.errors.full_messages_for(:course).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for course_id end -->
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <% user_class = "form-control" %>
+    <% user_was_invalid = round.errors.include?(:user) %>
+
+    <% if was_validated %>
+      <% if user_was_invalid %>
+        <% user_class << " is-invalid" %>
+      <% else %>
+        <% user_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :user_id %>
+    <!-- Input for user_id start -->
+    <%= f.number_field :user_id, class: user_class, placeholder: "Enter user" %>
+    <!-- Input for user_id end -->
+    <% if user_was_invalid %>
+      <% round.errors.full_messages_for(:user).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for user_id end -->
+  <!-- Label and input for score start -->
+  <div class="form-group">
+    <% score_class = "form-control" %>
+    <% score_was_invalid = round.errors.include?(:score) %>
+
+    <% if was_validated %>
+      <% if score_was_invalid %>
+        <% score_class << " is-invalid" %>
+      <% else %>
+        <% score_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :score %>
+    <!-- Input for score start -->
+    <%= f.number_field :score, class: score_class, placeholder: "Enter score" %>
+    <!-- Input for score end -->
+    <% if score_was_invalid %>
+      <% round.errors.full_messages_for(:score).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for score end -->
+  <!-- Label and input for best_hole start -->
+  <div class="form-group">
+    <% best_hole_class = "form-control" %>
+    <% best_hole_was_invalid = round.errors.include?(:best_hole) %>
+
+    <% if was_validated %>
+      <% if best_hole_was_invalid %>
+        <% best_hole_class << " is-invalid" %>
+      <% else %>
+        <% best_hole_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :best_hole %>
+    <!-- Input for best_hole start -->
+    <%= f.number_field :best_hole, class: best_hole_class, placeholder: "Enter best hole" %>
+    <!-- Input for best_hole end -->
+    <% if best_hole_was_invalid %>
+      <% round.errors.full_messages_for(:best_hole).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for best_hole end -->
+  <!-- Label and input for worst_hole start -->
+  <div class="form-group">
+    <% worst_hole_class = "form-control" %>
+    <% worst_hole_was_invalid = round.errors.include?(:worst_hole) %>
+
+    <% if was_validated %>
+      <% if worst_hole_was_invalid %>
+        <% worst_hole_class << " is-invalid" %>
+      <% else %>
+        <% worst_hole_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :worst_hole %>
+    <!-- Input for worst_hole start -->
+    <%= f.number_field :worst_hole, class: worst_hole_class, placeholder: "Enter worst hole" %>
+    <!-- Input for worst_hole end -->
+    <% if worst_hole_was_invalid %>
+      <% round.errors.full_messages_for(:worst_hole).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for worst_hole end -->
+  <!-- Label and input for reason_wonlost start -->
+  <div class="form-group">
+    <% reason_wonlost_class = "form-control" %>
+    <% reason_wonlost_was_invalid = round.errors.include?(:reason_wonlost) %>
+
+    <% if was_validated %>
+      <% if reason_wonlost_was_invalid %>
+        <% reason_wonlost_class << " is-invalid" %>
+      <% else %>
+        <% reason_wonlost_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :reason_wonlost %>
+    <!-- Input for reason_wonlost start -->
+    <%= f.text_area :reason_wonlost, class: reason_wonlost_class, placeholder: "Enter reason wonlost" %>
+    <!-- Input for reason_wonlost end -->
+    <% if reason_wonlost_was_invalid %>
+      <% round.errors.full_messages_for(:reason_wonlost).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for reason_wonlost end -->
+  <!-- Label and input for best_hole_description start -->
+  <div class="form-group">
+    <% best_hole_description_class = "form-control" %>
+    <% best_hole_description_was_invalid = round.errors.include?(:best_hole_description) %>
+
+    <% if was_validated %>
+      <% if best_hole_description_was_invalid %>
+        <% best_hole_description_class << " is-invalid" %>
+      <% else %>
+        <% best_hole_description_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :best_hole_description %>
+    <!-- Input for best_hole_description start -->
+    <%= f.text_field :best_hole_description, class: best_hole_description_class, placeholder: "Enter best hole description" %>
+    <!-- Input for best_hole_description end -->
+    <% if best_hole_description_was_invalid %>
+      <% round.errors.full_messages_for(:best_hole_description).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for best_hole_description end -->
+  <!-- Label and input for worst_hole_description start -->
+  <div class="form-group">
+    <% worst_hole_description_class = "form-control" %>
+    <% worst_hole_description_was_invalid = round.errors.include?(:worst_hole_description) %>
+
+    <% if was_validated %>
+      <% if worst_hole_description_was_invalid %>
+        <% worst_hole_description_class << " is-invalid" %>
+      <% else %>
+        <% worst_hole_description_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :worst_hole_description %>
+    <!-- Input for worst_hole_description start -->
+    <%= f.text_field :worst_hole_description, class: worst_hole_description_class, placeholder: "Enter worst hole description" %>
+    <!-- Input for worst_hole_description end -->
+    <% if worst_hole_description_was_invalid %>
+      <% round.errors.full_messages_for(:worst_hole_description).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for worst_hole_description end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
