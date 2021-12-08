@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :holes_results
   resources :rounds
   resources :holes_overviews
   resources :golf_courses

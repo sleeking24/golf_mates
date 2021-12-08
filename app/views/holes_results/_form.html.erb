@@ -1,0 +1,83 @@
+<% was_validated = holes_result.errors.any? %>
+
+<%= form_with(model: holes_result, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for round_id start -->
+  <div class="form-group">
+    <% round_class = "form-control" %>
+    <% round_was_invalid = holes_result.errors.include?(:round) %>
+
+    <% if was_validated %>
+      <% if round_was_invalid %>
+        <% round_class << " is-invalid" %>
+      <% else %>
+        <% round_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :round_id %>
+    <!-- Input for round_id start -->
+    <%= f.number_field :round_id, class: round_class, placeholder: "Enter round" %>
+    <!-- Input for round_id end -->
+    <% if round_was_invalid %>
+      <% holes_result.errors.full_messages_for(:round).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for round_id end -->
+  <!-- Label and input for hole_number start -->
+  <div class="form-group">
+    <% hole_number_class = "form-control" %>
+    <% hole_number_was_invalid = holes_result.errors.include?(:hole_number) %>
+
+    <% if was_validated %>
+      <% if hole_number_was_invalid %>
+        <% hole_number_class << " is-invalid" %>
+      <% else %>
+        <% hole_number_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :hole_number %>
+    <!-- Input for hole_number start -->
+    <%= f.number_field :hole_number, class: hole_number_class, placeholder: "Enter hole number" %>
+    <!-- Input for hole_number end -->
+    <% if hole_number_was_invalid %>
+      <% holes_result.errors.full_messages_for(:hole_number).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for hole_number end -->
+  <!-- Label and input for number_of_strokes start -->
+  <div class="form-group">
+    <% number_of_stroke_class = "form-control" %>
+    <% number_of_stroke_was_invalid = holes_result.errors.include?(:number_of_stroke) %>
+
+    <% if was_validated %>
+      <% if number_of_stroke_was_invalid %>
+        <% number_of_stroke_class << " is-invalid" %>
+      <% else %>
+        <% number_of_stroke_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :number_of_strokes %>
+    <!-- Input for number_of_strokes start -->
+    <%= f.number_field :number_of_strokes, class: number_of_stroke_class, placeholder: "Enter number of stroke" %>
+    <!-- Input for number_of_strokes end -->
+    <% if number_of_stroke_was_invalid %>
+      <% holes_result.errors.full_messages_for(:number_of_stroke).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for number_of_strokes end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
