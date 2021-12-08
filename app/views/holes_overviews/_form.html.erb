@@ -94,7 +94,7 @@
 
     <%= f.label :golf_course_id %>
     <!-- Input for golf_course_id start -->
-    <%= f.number_field :golf_course_id, class: golf_course_class, placeholder: "Enter golf course" %>
+    <%= f.collection_select :golf_course_id, GolfCourse.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for golf_course_id end -->
     <% if golf_course_was_invalid %>
       <% holes_overview.errors.full_messages_for(:golf_course).each do |message| %>
