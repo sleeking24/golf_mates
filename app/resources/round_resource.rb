@@ -13,6 +13,8 @@ class RoundResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :holes_results
+
   belongs_to :course,
              resource: GolfCourseResource
 

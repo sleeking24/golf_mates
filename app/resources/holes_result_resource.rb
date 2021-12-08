@@ -8,6 +8,8 @@ class HolesResultResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :round
+
   # Indirect associations
 
 end
